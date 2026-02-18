@@ -3,8 +3,7 @@ package com.errandly.Errandly.User.Entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
@@ -19,7 +18,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class Runner {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private int id;
 
     @MapsId
