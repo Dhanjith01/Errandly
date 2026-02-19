@@ -1,5 +1,7 @@
 package com.errandly.Errandly.User.DTO;
 
+import com.errandly.Errandly.User.Entity.AvailabilityStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,12 +10,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateUserRequest {
-    String name;
-    String studentId;
-    String email;
-    String phone; 
+@Builder
+public class RunnerResponseDTO {
+    private String zone;
+    private AvailabilityStatus availabilityStatus;
 }

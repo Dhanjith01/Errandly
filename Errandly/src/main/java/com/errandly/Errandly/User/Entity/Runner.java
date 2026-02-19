@@ -1,5 +1,10 @@
 package com.errandly.Errandly.User.Entity;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,13 +18,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "runner")
+@Table(name = "runners")
 @Getter
 @Setter
 @Builder
 public class Runner {
     @Id
-    private int id;
+    private Long id;
 
     @MapsId
     @OneToOne
@@ -30,4 +35,10 @@ public class Runner {
     private AvailabilityStatus availabilityStatus;
 
     private String zone;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 }

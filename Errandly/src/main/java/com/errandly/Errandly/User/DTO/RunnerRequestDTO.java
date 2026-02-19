@@ -1,5 +1,6 @@
 package com.errandly.Errandly.User.DTO;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BecomeRunnerRequest {
-    String zone;
+public class RunnerRequestDTO {
+    @NotBlank
+    private String zone;
 }
