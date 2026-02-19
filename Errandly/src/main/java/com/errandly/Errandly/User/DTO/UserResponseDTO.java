@@ -16,4 +16,5 @@ public class UserResponseDTO {
     String studentId;
     String email;
     String phone;
+    double reputationscore;
 }

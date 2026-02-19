@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.errandly.Errandly.User.DTO.BecomeRunnerRequest;
 import com.errandly.Errandly.User.DTO.CreateUserRequest;
+import com.errandly.Errandly.User.DTO.UserResponseDTO;
 import com.errandly.Errandly.User.Entity.Roles;
 import com.errandly.Errandly.User.Entity.Runner;
 import com.errandly.Errandly.User.Entity.User;
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User createUser(CreateUserRequest request){
+    public UserResponseDTO createUser(CreateUserRequest request){
         User user=User.builder()
                       .email(request.getEmail())
                       .studentId(request.getStudentId())
@@ -30,7 +31,16 @@ public class UserServiceImpl implements UserService {
                       .build();
         user.getRoles().add(Roles.CUSTOMER);
 
-        return userRepository.save(user);
+        User temp= userRepository.save(user);
+        UserResponseDTO response=UserResponseDTO.builder()
+        .name(temp.getName())
+        .studentId(temp.getStudentId())
+        .reputationscore(temp.getReputationscore())
+        .email(temp.getEmail())
+        .phone(temp.getPhone())
+        .build();
+
+        return response;
         
     }
 
@@ -44,15 +54,27 @@ public class UserServiceImpl implements UserService {
             Runner runner=Runner.builder().user(user).zone(request.getZone()).build();
             runnerRepository.save(runner);
             user.setRunner(runner);
+            userRepository.save(user);
         }
-        userRepository.save(user);
+        else{
+            throw new RuntimeException("User is already a Runner");
+        }
+        
     }
 
     @Override
-    public User getUser(Long id){
+    public UserResponseDTO getUser(Long id){
         User user=userRepository.findById(id)
                                 .orElseThrow(()->new RuntimeException("User not found"));
-        return user;
+        UserResponseDTO response=UserResponseDTO.builder()
+        .name(user.getName())
+        .studentId(user.getStudentId())
+        .reputationscore(user.getReputationscore())
+        .email(user.getEmail())
+        .phone(user.getPhone())
+        .build();
+
+        return response;
     }
 
 }

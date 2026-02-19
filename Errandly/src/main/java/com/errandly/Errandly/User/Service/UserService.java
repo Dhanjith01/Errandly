@@ -2,11 +2,11 @@ package com.errandly.Errandly.User.Service;
 
 import com.errandly.Errandly.User.DTO.BecomeRunnerRequest;
 import com.errandly.Errandly.User.DTO.CreateUserRequest;
-import com.errandly.Errandly.User.Entity.User;
+import com.errandly.Errandly.User.DTO.UserResponseDTO;
 
 public interface UserService {
 
-    User createUser(CreateUserRequest request);
+    UserResponseDTO createUser(CreateUserRequest request);
     void becomeRunner(Long id,BecomeRunnerRequest request);
-    User getUser(Long id);
+    UserResponseDTO getUser(Long id);
 }
