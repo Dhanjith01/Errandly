@@ -18,6 +18,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -28,7 +29,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="users")
+@Table(name="users",indexes = {
+        @Index(name = "idx_user_email", columnList = "email"),
+        @Index(name = "idx_user_student_id", columnList = "studentId"),
+        @Index(name = "idx_user_enabled", columnList = "enabled"),
+        @Index(name = "idx_user_created_at", columnList = "createdAt")
+    })
 @Getter
 @Setter
 @Builder
@@ -62,7 +68,7 @@ public class User {
     @Builder.Default
     private Set<Roles> roles=new HashSet<>();
     
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user",cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     private Runner runner;
 
     @Column(nullable = false)

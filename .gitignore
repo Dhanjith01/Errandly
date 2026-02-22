@@ -60,3 +60,4 @@ build/
 application.properties
 security/
 Security/
+resources/
