@@ -1,4 +1,4 @@
-package com.errandly.Errandly.Exception.Custom;
+package com.errandly.Errandly.exception.custom;
 
 public class RunnerNotFoundException extends RuntimeException {
     public RunnerNotFoundException(Long id){

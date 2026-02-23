@@ -1,4 +1,4 @@
-package com.errandly.Errandly.Exception.Handler;
+package com.errandly.Errandly.exception.handler;
 
 import java.time.LocalDateTime;
 
@@ -7,10 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.errandly.Errandly.Exception.Custom.DuplicateResourceException;
-import com.errandly.Errandly.Exception.Custom.RunnerNotFoundException;
-import com.errandly.Errandly.Exception.Custom.UserNotFoundException;
-import com.errandly.Errandly.Exception.DTO.ErrorResponse;
+import com.errandly.Errandly.exception.custom.DuplicateResourceException;
+import com.errandly.Errandly.exception.custom.RunnerNotFoundException;
+import com.errandly.Errandly.exception.custom.UserNotFoundException;
+import com.errandly.Errandly.exception.dto.ErrorResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 

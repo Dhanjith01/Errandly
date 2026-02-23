@@ -1,11 +1,11 @@
-package com.errandly.Errandly.User.Repository;
+package com.errandly.Errandly.user.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.errandly.Errandly.User.Entity.User;
+import com.errandly.Errandly.user.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {

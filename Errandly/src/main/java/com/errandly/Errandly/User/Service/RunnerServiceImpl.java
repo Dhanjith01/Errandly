@@ -1,12 +1,12 @@
-package com.errandly.Errandly.User.Service;
+package com.errandly.Errandly.user.service;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.errandly.Errandly.Exception.Custom.RunnerNotFoundException;
-import com.errandly.Errandly.User.Entity.AvailabilityStatus;
-import com.errandly.Errandly.User.Entity.Runner;
-import com.errandly.Errandly.User.Repository.RunnerRepository;
+import com.errandly.Errandly.user.entity.AvailabilityStatus;
+import com.errandly.Errandly.user.entity.Runner;
+import com.errandly.Errandly.user.repository.RunnerRepository;
+import com.errandly.Errandly.exception.custom.RunnerNotFoundException;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,8 @@
-package com.errandly.Errandly.User.DTO;
+package com.errandly.Errandly.user.dto;
 
 import java.util.Set;
 
-import com.errandly.Errandly.User.Entity.Roles;
+import com.errandly.Errandly.user.entity.Roles;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

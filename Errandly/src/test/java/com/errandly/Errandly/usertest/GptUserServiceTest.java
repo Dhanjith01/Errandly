@@ -24,17 +24,17 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.errandly.Errandly.Exception.Custom.DuplicateResourceException;
-import com.errandly.Errandly.Exception.Custom.UserNotFoundException;
-import com.errandly.Errandly.User.DTO.RunnerRequestDTO;
-import com.errandly.Errandly.User.DTO.UserRequestDTO;
-import com.errandly.Errandly.User.DTO.UserResponseDTO;
-import com.errandly.Errandly.User.Entity.AvailabilityStatus;
-import com.errandly.Errandly.User.Entity.Roles;
-import com.errandly.Errandly.User.Entity.Runner;
-import com.errandly.Errandly.User.Entity.User;
-import com.errandly.Errandly.User.Repository.UserRepository;
-import com.errandly.Errandly.User.Service.UserServiceImpl;
+import com.errandly.Errandly.exception.custom.DuplicateResourceException;
+import com.errandly.Errandly.exception.custom.UserNotFoundException;
+import com.errandly.Errandly.user.dto.RunnerRequestDTO;
+import com.errandly.Errandly.user.dto.UserRequestDTO;
+import com.errandly.Errandly.user.dto.UserResponseDTO;
+import com.errandly.Errandly.user.entity.AvailabilityStatus;
+import com.errandly.Errandly.user.entity.Roles;
+import com.errandly.Errandly.user.entity.Runner;
+import com.errandly.Errandly.user.entity.User;
+import com.errandly.Errandly.user.repository.UserRepository;
+import com.errandly.Errandly.user.service.UserServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class GptUserServiceTest {
@@ -217,7 +217,6 @@ public class GptUserServiceTest {
         assertEquals("Zone A", user.getRunner().getZone());
         assertEquals(AvailabilityStatus.UNAVAILABLE, user.getRunner().getAvailabilityStatus());
 
-        verify(userRepository).save(user);
     }
 
      @Test

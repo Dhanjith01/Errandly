@@ -7,6 +7,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -20,13 +21,13 @@ import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.errandly.Errandly.User.Controller.UserController;
-import com.errandly.Errandly.User.DTO.RunnerRequestDTO;
-import com.errandly.Errandly.User.DTO.UserRequestDTO;
-import com.errandly.Errandly.User.DTO.UserResponseDTO;
-import com.errandly.Errandly.User.Entity.Roles;
-import com.errandly.Errandly.User.Service.RunnerService;
-import com.errandly.Errandly.User.Service.UserService;
+import com.errandly.Errandly.user.controller.UserController;
+import com.errandly.Errandly.user.dto.RunnerRequestDTO;
+import com.errandly.Errandly.user.dto.UserRequestDTO;
+import com.errandly.Errandly.user.dto.UserResponseDTO;
+import com.errandly.Errandly.user.entity.Roles;
+import com.errandly.Errandly.user.service.RunnerService;
+import com.errandly.Errandly.user.service.UserService;
 
 import tools.jackson.databind.ObjectMapper;
 
@@ -126,7 +127,7 @@ public class UserControllerTest {
 
         doNothing().when(runnerService).enableRunner(1L);
 
-        mockMvc.perform(post("/user/1/runner/enable"))
+        mockMvc.perform(patch(("/user/1/runner/enable")))
                 .andExpect(status().isNoContent());
 
         verify(runnerService).enableRunner(1L);
@@ -137,7 +138,7 @@ public class UserControllerTest {
 
         doNothing().when(runnerService).disableRunner(1L);
 
-        mockMvc.perform(post("/user/1/runner/disable"))
+        mockMvc.perform(patch("/user/1/runner/disable"))
                 .andExpect(status().isNoContent());
 
         verify(runnerService).disableRunner(1L);

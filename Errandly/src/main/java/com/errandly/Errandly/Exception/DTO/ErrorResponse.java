@@ -1,4 +1,4 @@
-package com.errandly.Errandly.Exception.DTO;
+package com.errandly.Errandly.exception.dto;
 
 import java.time.LocalDateTime;
 

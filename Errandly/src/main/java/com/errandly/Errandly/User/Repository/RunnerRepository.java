@@ -1,4 +1,4 @@
-package com.errandly.Errandly.User.Repository;
+package com.errandly.Errandly.user.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.errandly.Errandly.User.Entity.AvailabilityStatus;
-import com.errandly.Errandly.User.Entity.Runner;
+import com.errandly.Errandly.user.entity.Runner;
+import com.errandly.Errandly.user.entity.AvailabilityStatus;
 
 @Repository
 public interface RunnerRepository extends JpaRepository<Runner,Long> {

@@ -1,4 +1,4 @@
-package com.errandly.Errandly.User.Entity;
+package com.errandly.Errandly.user.entity;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -68,7 +68,7 @@ public class User {
     @Builder.Default
     private Set<Roles> roles=new HashSet<>();
     
-    @OneToOne(mappedBy = "user",cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Runner runner;
 
     @Column(nullable = false)
@@ -80,4 +80,9 @@ public class User {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public void assignRunner(Runner runner){
+        this.runner=runner;
+        runner.setUser(this);
+    }
 }

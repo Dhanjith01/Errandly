@@ -1,6 +1,6 @@
-package com.errandly.Errandly.User.DTO;
+package com.errandly.Errandly.user.dto;
 
-import com.errandly.Errandly.User.Entity.AvailabilityStatus;
+import com.errandly.Errandly.user.entity.AvailabilityStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

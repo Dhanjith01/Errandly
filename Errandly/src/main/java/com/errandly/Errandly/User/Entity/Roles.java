@@ -1,7 +1,16 @@
-package com.errandly.Errandly.User.Entity;
+package com.errandly.Errandly.user.entity;
 
-public enum Roles {
+import org.jspecify.annotations.Nullable;
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Roles implements GrantedAuthority{
     CUSTOMER,
     ADMIN,
-    RUNNER
+    RUNNER;
+
+    @Override
+    public @Nullable String getAuthority() {
+        
+        return "ROLE_"+name();
+    }
 }

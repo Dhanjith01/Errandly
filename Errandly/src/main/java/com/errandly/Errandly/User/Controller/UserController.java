@@ -1,4 +1,4 @@
-package com.errandly.Errandly.User.Controller;
+package com.errandly.Errandly.user.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.errandly.Errandly.User.DTO.RunnerRequestDTO;
-import com.errandly.Errandly.User.DTO.UserRequestDTO;
-import com.errandly.Errandly.User.DTO.UserResponseDTO;
-import com.errandly.Errandly.User.Service.RunnerService;
-import com.errandly.Errandly.User.Service.UserService;
+import com.errandly.Errandly.user.service.RunnerService;
+import com.errandly.Errandly.user.dto.RunnerRequestDTO;
+import com.errandly.Errandly.user.dto.UserRequestDTO;
+import com.errandly.Errandly.user.dto.UserResponseDTO;
+import com.errandly.Errandly.user.service.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

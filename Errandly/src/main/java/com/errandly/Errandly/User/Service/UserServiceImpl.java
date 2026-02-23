@@ -1,20 +1,20 @@
-package com.errandly.Errandly.User.Service;
+package com.errandly.Errandly.user.service;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.errandly.Errandly.Exception.Custom.DuplicateResourceException;
-import com.errandly.Errandly.Exception.Custom.UserNotFoundException;
-import com.errandly.Errandly.User.DTO.RunnerRequestDTO;
-import com.errandly.Errandly.User.DTO.RunnerResponseDTO;
-import com.errandly.Errandly.User.DTO.UserRequestDTO;
-import com.errandly.Errandly.User.DTO.UserResponseDTO;
-import com.errandly.Errandly.User.Entity.AvailabilityStatus;
-import com.errandly.Errandly.User.Entity.Roles;
-import com.errandly.Errandly.User.Entity.Runner;
-import com.errandly.Errandly.User.Entity.User;
-import com.errandly.Errandly.User.Repository.UserRepository;
+import com.errandly.Errandly.user.dto.RunnerRequestDTO;
+import com.errandly.Errandly.user.dto.RunnerResponseDTO;
+import com.errandly.Errandly.user.dto.UserRequestDTO;
+import com.errandly.Errandly.user.dto.UserResponseDTO;
+import com.errandly.Errandly.user.entity.AvailabilityStatus;
+import com.errandly.Errandly.user.entity.Roles;
+import com.errandly.Errandly.user.entity.Runner;
+import com.errandly.Errandly.user.entity.User;
+import com.errandly.Errandly.user.repository.UserRepository;
+import com.errandly.Errandly.exception.custom.DuplicateResourceException;
+import com.errandly.Errandly.exception.custom.UserNotFoundException;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -70,8 +70,7 @@ public class UserServiceImpl implements UserService {
                                 .build();
 
             //runnerRepository.save(runner);   //not needed as cascade saves runner
-            user.setRunner(runner);
-            userRepository.save(user);
+            user.assignRunner(runner);
         }
         else{
             throw new RuntimeException("User is already a Runner");

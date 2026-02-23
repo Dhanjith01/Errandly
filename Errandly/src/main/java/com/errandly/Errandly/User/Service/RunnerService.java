@@ -1,4 +1,4 @@
-package com.errandly.Errandly.User.Service;
+package com.errandly.Errandly.user.service;
 
 public interface RunnerService {
     public void enableRunner(Long id);

@@ -16,11 +16,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.errandly.Errandly.Exception.Custom.RunnerNotFoundException;
-import com.errandly.Errandly.User.Entity.AvailabilityStatus;
-import com.errandly.Errandly.User.Entity.Runner;
-import com.errandly.Errandly.User.Repository.RunnerRepository;
-import com.errandly.Errandly.User.Service.RunnerServiceImpl;
+import com.errandly.Errandly.exception.custom.RunnerNotFoundException;
+import com.errandly.Errandly.user.entity.AvailabilityStatus;
+import com.errandly.Errandly.user.entity.Runner;
+import com.errandly.Errandly.user.repository.RunnerRepository;
+import com.errandly.Errandly.user.service.RunnerServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class RunnerServiceTest {
