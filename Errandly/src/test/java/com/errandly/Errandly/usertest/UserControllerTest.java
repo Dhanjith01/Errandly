@@ -125,23 +125,23 @@ public class UserControllerTest {
      @Test
     void enableRunner_shouldReturn204() throws Exception {
 
-        doNothing().when(runnerService).enableRunner(1L);
+        doNothing().when(runnerService).availableRunner(1L);
 
         mockMvc.perform(patch(("/user/1/runner/enable")))
                 .andExpect(status().isNoContent());
 
-        verify(runnerService).enableRunner(1L);
+        verify(runnerService).availableRunner(1L);
     }
 
     @Test
     void disableRunner_shouldReturn204() throws Exception {
 
-        doNothing().when(runnerService).disableRunner(1L);
+        doNothing().when(runnerService).unavailableRunner(1L);
 
         mockMvc.perform(patch("/user/1/runner/disable"))
                 .andExpect(status().isNoContent());
 
-        verify(runnerService).disableRunner(1L);
+        verify(runnerService).unavailableRunner(1L);
     }
 
 }

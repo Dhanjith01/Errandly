@@ -71,6 +71,7 @@ public class UserServiceImpl implements UserService {
 
             //runnerRepository.save(runner);   //not needed as cascade saves runner
             user.assignRunner(runner);
+            user.getRoles().add(Roles.RUNNER);
         }
         else{
             throw new RuntimeException("User is already a Runner");

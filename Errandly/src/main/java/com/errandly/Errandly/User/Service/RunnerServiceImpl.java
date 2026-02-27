@@ -19,7 +19,7 @@ public class RunnerServiceImpl implements RunnerService{
     
     @Override
     @Transactional
-    public void enableRunner(Long id){
+    public void availableRunner(Long id){
         Runner runner=runnerRepository.findById(id)
                                       .orElseThrow(()->new RunnerNotFoundException(id));        
         
@@ -30,7 +30,7 @@ public class RunnerServiceImpl implements RunnerService{
 
     @Override
     @Transactional
-    public void disableRunner(Long id){
+    public void unavailableRunner(Long id){
         Runner runner=runnerRepository.findById(id)
                                       .orElseThrow(()->new RunnerNotFoundException(id));
         

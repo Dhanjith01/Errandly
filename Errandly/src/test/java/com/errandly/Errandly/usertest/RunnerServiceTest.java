@@ -44,7 +44,7 @@ public class RunnerServiceTest {
     void enableRunner_shouldSetAvailabilityToAvailable_whenRunnerExists() {
         when(runnerRepository.findById(1L)).thenReturn(Optional.of(runner));
 
-        runnerService.enableRunner(1L);
+        runnerService.availableRunner(1L);
 
         assertEquals(AvailabilityStatus.AVAILABLE, runner.getAvailabilityStatus());
         verify(runnerRepository).save(runner);
@@ -55,7 +55,7 @@ public class RunnerServiceTest {
         runner.setAvailabilityStatus(AvailabilityStatus.AVAILABLE);
         when(runnerRepository.findById(1L)).thenReturn(Optional.of(runner));
 
-        runnerService.disableRunner(1L);
+        runnerService.unavailableRunner(1L);
 
         assertEquals(AvailabilityStatus.UNAVAILABLE, runner.getAvailabilityStatus());
         verify(runnerRepository).save(runner);
@@ -66,7 +66,7 @@ public class RunnerServiceTest {
         when(runnerRepository.findById(1L)).thenReturn(Optional.empty());
 
         assertThrows(RunnerNotFoundException.class,
-                () -> runnerService.enableRunner(1L));
+                () -> runnerService.availableRunner(1L));
 
         verify(runnerRepository, never()).save(any());
     }
@@ -76,7 +76,7 @@ public class RunnerServiceTest {
         when(runnerRepository.findById(1L)).thenReturn(Optional.empty());
 
         assertThrows(RunnerNotFoundException.class,
-                () -> runnerService.disableRunner(1L));
+                () -> runnerService.unavailableRunner(1L));
 
         verify(runnerRepository, never()).save(any());
     }
