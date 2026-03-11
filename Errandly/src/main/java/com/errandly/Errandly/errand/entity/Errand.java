@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.errandly.Errandly.errand.errand_state.ErrandState;
 import com.errandly.Errandly.payment.entity.Payment;
 import com.errandly.Errandly.user.entity.Runner;
 import com.errandly.Errandly.user.entity.User;
@@ -23,6 +24,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -64,6 +66,11 @@ public class Errand {
     @Enumerated(EnumType.STRING)
     private ErrandStatus status=ErrandStatus.CREATED;
 
+    @Transient
+    private ErrandState state;
+
+    
+
     //Prices
     @Column(nullable=false)
     private BigDecimal quotedprice;
@@ -82,8 +89,7 @@ public class Errand {
     private LocalDateTime acceptedAt;
     private LocalDateTime deliveredAt;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="payment_id")
-    Payment payments;
-
+    Payment payment;
 }
